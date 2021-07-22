@@ -8,19 +8,18 @@ class SignInBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey,
       height: double.infinity,
       width: double.infinity,
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/signin_map.jpg'), fit: BoxFit.cover)),
       child: Stack(
-        children: [
-          _TealBox(),
-          _HeaderIcon(),
-          this.child
-        ],
+        children: [_TealBox(), _HeaderIcon(), this.child],
       ),
     );
   }
 }
+
 //Icono de la pantalla de login
 class _HeaderIcon extends StatelessWidget {
   @override
@@ -33,6 +32,7 @@ class _HeaderIcon extends StatelessWidget {
                 const Icon(Icons.person_pin, color: Colors.white, size: 100)));
   }
 }
+
 //Cuadrado de la pantalla de login
 class _TealBox extends StatelessWidget {
   @override
@@ -41,7 +41,7 @@ class _TealBox extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: size.height * 0.4,
-      color: Colors.indigo,
+      color: Colors.teal,
     );
   }
 }

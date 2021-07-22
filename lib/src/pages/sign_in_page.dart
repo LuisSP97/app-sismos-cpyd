@@ -58,7 +58,7 @@ class _LoginForm extends StatelessWidget {
                 height: 60,
                 disabledColor: Colors.grey,
                 elevation: 0,
-                color: Colors.indigoAccent,
+                color: Colors.teal,
                 child: Container(
                   child: Text('Iniciar', style: TextStyle(color: Colors.white, fontSize: 20),),
                 )
