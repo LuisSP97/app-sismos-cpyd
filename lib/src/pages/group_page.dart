@@ -13,7 +13,7 @@ class GroupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Integrantes grupo X'),
+          title: const Text('Desarrolladores'),
           centerTitle: true,
           backgroundColor: Colors.teal),
       backgroundColor: Colors.white12,

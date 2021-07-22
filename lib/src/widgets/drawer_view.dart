@@ -59,7 +59,7 @@ class DrawerView extends StatelessWidget {
               ),
               // ignore: prefer_const_constructors
               title: Text(
-                'Integrantes',
+                'Desarrolladores',
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onTap: () {
