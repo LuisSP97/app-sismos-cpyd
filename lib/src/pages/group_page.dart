@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class GroupPage extends StatelessWidget {
   static const String routeName = '/group';
-  static const List<String> nombres = ['Luis Salinas','Ariel Painenao','Cristobal Sanchez'];
+  static const List<String> nombres = ['Luis Salinas','Cristobal Sanchez','Ariel Painenao'];
+  static const List<String> imagenes = ['assets/luis.jpg','assets/cris.jpg','assets/ariel.jpg'];
   const GroupPage({Key? key}) : super(key: key);
 
   @override
@@ -15,8 +16,9 @@ class GroupPage extends StatelessWidget {
           title: const Text('Integrantes grupo X'),
           centerTitle: true,
           backgroundColor: Colors.teal),
+      backgroundColor: Colors.white12,
       drawer: const DrawerView(),
-      body: const Center(child:UserBox(nombres: nombres)),
+      body: const Center(child:UserBox(nombres: nombres,imagenes: imagenes,)),
     );
   }
 }
