@@ -34,35 +34,34 @@ class UserBox extends StatelessWidget {
                 BoxShadow(
                     offset: Offset(0, 5), color: Colors.black12, blurRadius: 12)
               ]),
-          child: Column(
+          child: Row(
             children: <Widget>[
-              const SizedBox(height: 15,),
-              Row(
-                children: [
-                  const SizedBox(width: 15),
-                  ClipRRect(child: Image.asset(data[i].asset, height: 70, width: 70), borderRadius: BorderRadius.circular(100),),
-                  const SizedBox(width: 15),
-                  Text(data[i].nombre,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                      )),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 45,),
+                    ClipRRect(child: Image.asset(data[i].asset, height: 70, width: 70), borderRadius: BorderRadius.circular(100),),
+                  ],
+                ),
               ),
-              Row(
-                children: <Widget>[
-                  const SizedBox(width: 100),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(data[i].gustos, style: TextStyle(color: Colors.white, fontSize: 16),),
-                      Text(data[i].preferencia, style: TextStyle(color: Colors.white, fontSize: 16)),
-                      Text(data[i].lenguaje, style: TextStyle(color: Colors.white, fontSize: 16)),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(data[i].nombre,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                        )),
+                    Text(data[i].gustos, style: TextStyle(color: Colors.white, fontSize: 16),),
+                    Text(data[i].preferencia, style: TextStyle(color: Colors.white, fontSize: 16)),
+                    Text(data[i].lenguaje, style: TextStyle(color: Colors.white, fontSize: 16)),
 
-                    ],
-                  ),
-
-                ],
+                  ],
+                ),
               ),
             ],
           ));
