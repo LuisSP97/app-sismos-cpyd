@@ -15,7 +15,7 @@ class SismosProvider extends ChangeNotifier{
   getSismos() async {
     var url = Uri.http(_baseUrl, '/grupo-x/earthquakes');
     final response = await http.get(url);                 //Se realiza la peticion GET
-    final sismosResponse = SismosResponse.fromJson(response.body);    //Se procesan los datos
+    final sismosResponse = SismosResponse.fromJson(response.body); //Se procesan los datos
     lista_sismos = sismosResponse.data;
     notifyListeners();
   }

@@ -20,17 +20,16 @@ class Lista extends StatelessWidget {
     final List<Widget> opciones = [];
     for (var i = 0; i < data.length; i++) {   //Recorremos los datos para obtener cada registro
       final widgetTemp = ListTile(
-        title: Text(data[i].refGeografica),
-        subtitle: Text(data[i].fechaLocal),
-        leading: Icon(Icons.my_location_outlined),
-        trailing: Icon(Icons.keyboard_arrow_right),
+        title: Text(data[i].refGeografica, style: TextStyle(color: Colors.white)),
+        subtitle: Text(data[i].fechaLocal, style: TextStyle(color: Colors.grey)),
+        leading: Icon(Icons.track_changes_rounded, color: Colors.teal),
+        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
         onTap: () {
           Navigator.pushNamed(context, DetailsPage.routeName, arguments: data[i]);
         },            //OnTap que lleva a los detalles del sismo, enviando los datos a traves de arguments para dibujar la pagina
       );
       opciones..add(widgetTemp); //Se agregan los datos a una lista Opciones
     }
-    ;
     return opciones;  //Se devuelven las opciones
   }
 }

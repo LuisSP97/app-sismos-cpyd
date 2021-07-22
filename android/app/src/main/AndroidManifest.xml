@@ -3,6 +3,8 @@
    <application
         android:label="appsismos"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyA2aPtyAygEO4dVad4SXGBLBCnEV7D0to0"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
