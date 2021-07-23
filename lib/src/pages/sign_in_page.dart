@@ -86,11 +86,18 @@ class _LoginFormState extends State<_LoginForm> {
 
   Future signIn(context) async {
     final user = await GoogleSignInApi.login();
+    var emailDomain = user!.email.split('@');
     if (user == null) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('Fallo el inicio de sesion')));
-    } else {
+    }
+    else if (emailDomain[1] == 'utem.cl') {
       Navigator.pushReplacementNamed(context, HomePage.routeName);
+    }
+    else {
+      await GoogleSignInApi.logout();
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('La cuenta ingresada no pertenece al dominio utem.cl')));
     }
   }
 }

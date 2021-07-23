@@ -7,7 +7,6 @@ class MapContainer extends StatefulWidget {
   final Datum sismo;
 
   const MapContainer({Key? key, required this.sismo}) : super(key: key);
-
   @override
   State<MapContainer> createState() => _MapContainerState(sismo: sismo);
 }
