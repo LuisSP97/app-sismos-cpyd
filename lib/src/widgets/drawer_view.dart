@@ -49,11 +49,7 @@ class DrawerView extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onTap: () {
-                //Navigator.pushReplacementNamed(context, HomePage.routeName);
-                Navigator.of(context)
-                    .push(CupertinoPageRoute(builder: (context){
-                      return HomePage();
-                } ));
+                Navigator.pushReplacementNamed(context, HomePage.routeName);
               },
             ),
             ListTile(

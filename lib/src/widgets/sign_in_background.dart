@@ -12,7 +12,7 @@ class SignInBackground extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/signin_map.jpg'), fit: BoxFit.cover)),
+              image: AssetImage('assets/map.jpg'), fit: BoxFit.cover)),
       child: Stack(
         children: [_TealBox(), _HeaderIcon(), this.child],
       ),
