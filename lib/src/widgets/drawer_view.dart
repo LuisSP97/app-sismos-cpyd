@@ -2,6 +2,7 @@ import 'package:appsismos/src/api/google_signin_api.dart';
 import 'package:appsismos/src/pages/group_page.dart';
 import 'package:appsismos/src/pages/home_page.dart';
 import 'package:appsismos/src/pages/sign_in_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DrawerView extends StatelessWidget {
@@ -48,7 +49,11 @@ class DrawerView extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onTap: () {
-                Navigator.pushReplacementNamed(context, HomePage.routeName);
+                //Navigator.pushReplacementNamed(context, HomePage.routeName);
+                Navigator.of(context)
+                    .push(CupertinoPageRoute(builder: (context){
+                      return HomePage();
+                } ));
               },
             ),
             ListTile(

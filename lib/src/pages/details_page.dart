@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
 class DetailsPage extends StatelessWidget {
-  static const routeName = '/details';
+  static const routeName = '/detailsPage';
   double latitud = 0;
   double longitud = 0;
   @override
   Widget build(BuildContext context) {
-    final sismos = ModalRoute.of(context)!.settings.arguments
-        as Datum; //Recibimos un argumento de tipo Datum
+    final sismos = ModalRoute.of(context)!.settings.arguments as Datum;
     latitud = sismos.latitud;
     longitud = sismos.longitud;
     return Scaffold(

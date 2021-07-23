@@ -1,5 +1,6 @@
 import 'package:appsismos/src/models/sismos_response.dart';
 import 'package:appsismos/src/pages/details_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Lista extends StatelessWidget {

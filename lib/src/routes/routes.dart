@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
     HomePage.routeName : (BuildContext context) => HomePage(),          //Ruta del listado de todos los sismos
-    DetailsPage.routeName : (BuildContext context) => DetailsPage(),    //Ruta de la pagina de detalles
     SignInPage.routeName : (BuildContext context) => SignInPage(),      //Ruta de la pagina de inicio de sesion
     GroupPage.routeName : (BuildContext context) => GroupPage(),        //Ruta de la pagina de integrantes del grupo
+    DetailsPage.routeName : (BuildContext context) => DetailsPage(),    //Ruta de la pagina de detalles del sismo
   };
 }

@@ -3,7 +3,7 @@ import 'package:appsismos/src/models/integrante.dart';
 Integrante integrante1 = Integrante(
     'Luis Salinas',
     'assets/luis.jpg',
-    'Guitarra y juegos',
+    'La guitarra y el Monster Hunter',
     'Front-end',
     'JavaScript'
 );
@@ -11,17 +11,17 @@ Integrante integrante1 = Integrante(
 Integrante integrante2 = Integrante(
     'Cristobal Sanchez',
     'assets/cris.jpg',
-    'El LoL y las Waifus',
-    'Back-end creo...',
-    'Hace ELO-Boost'
+    'Los gatos y la musica instrumental',
+    'Back-end',
+    'C++'
 );
 
 Integrante integrante3 = Integrante(
     'Ariel Painenao',
     'assets/ariel.jpg',
-    'Las vacas y la cerveza',
+    'La guitarra y la cerveza',
     'Back-end',
-    'Lo funaron por MarketPlace'
+    'Python o JS'
 );
 
 List<Integrante> integrantes = [integrante1, integrante2, integrante3];
