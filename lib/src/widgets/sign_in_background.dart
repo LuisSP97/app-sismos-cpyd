@@ -14,7 +14,7 @@ class SignInBackground extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage('assets/map.jpg'), fit: BoxFit.cover)),
       child: Stack(
-        children: [_TealBox(), _HeaderIcon(), this.child],
+        children: [_TealBox(), _HeaderIcon(), child],
       ),
     );
   }

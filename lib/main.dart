@@ -1,12 +1,13 @@
-import 'package:appsismos/src/providers/sismos_provider.dart';
-import 'package:appsismos/src/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:appsismos/src/providers/sismos_provider.dart';
+import 'package:appsismos/src/routes/routes.dart';
 
 void main() {
   runApp(AppState());
 }
 
+// ignore: use_key_in_widget_constructors
 class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class AppState extends StatelessWidget {
 }
 
 
+// ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
   @override
   Widget build(context) {

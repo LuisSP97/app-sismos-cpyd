@@ -5,9 +5,9 @@ import 'package:appsismos/src/pages/sign_in_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+//Menu lateral
 class DrawerView extends StatelessWidget {
   const DrawerView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -16,6 +16,7 @@ class DrawerView extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
+            //Cabecera
             const DrawerHeader(
                 decoration: BoxDecoration(
                     color: Colors.teal,
@@ -38,6 +39,7 @@ class DrawerView extends StatelessWidget {
                         ]),
                   ),
                 )),
+            //Opciones del menu
             ListTile(
               leading: const Icon(
                 Icons.format_list_bulleted_rounded,
@@ -48,6 +50,7 @@ class DrawerView extends StatelessWidget {
                 'Sismos',
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
+              //Navegacion a lista de sismos
               onTap: () {
                 Navigator.pushReplacementNamed(context, HomePage.routeName);
               },
@@ -58,16 +61,17 @@ class DrawerView extends StatelessWidget {
                 color: Colors.teal,
                 size: 35,
               ),
-              // ignore: prefer_const_constructors
-              title: Text(
+              title: const Text(
                 'Desarrolladores',
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
+              //Navegacion a informacion de desarrolladores
               onTap: () {
                 Navigator.pushReplacementNamed(context, GroupPage.routeName);
               },
             ),
             ListTile(
+              //Navegacion a pagina de inicio de sesion
                 onTap: () async {
                   //Boton de logout, utilizando las funciones de GoogleSignIn
                   await GoogleSignInApi.logout();

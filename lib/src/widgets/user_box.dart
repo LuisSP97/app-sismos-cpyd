@@ -1,18 +1,14 @@
 import 'dart:ui';
+import 'package:flutter/material.dart';
 import 'package:appsismos/src/models/integrante.dart';
 import 'package:appsismos/src/providers/integrantes_provider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class UserBox extends StatelessWidget {
-  final List<String> nombres;
-  final List<String> imagenes;
   static List<Integrante> integrantesProvider = integrantes;
-  const UserBox({Key? key, required this.nombres, required this.imagenes}) : super(key: key);
+  const UserBox({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print(integrantesProvider[0].lenguaje);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: _users(integrantesProvider, context),
@@ -56,16 +52,16 @@ class UserBox extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 30,
                         )),
-                    Text(data[i].gustos, style: TextStyle(color: Colors.white, fontSize: 16),),
-                    Text(data[i].preferencia, style: TextStyle(color: Colors.white, fontSize: 16)),
-                    Text(data[i].lenguaje, style: TextStyle(color: Colors.white, fontSize: 16)),
+                    Text(data[i].gustos, style: const TextStyle(color: Colors.white, fontSize: 16),),
+                    Text(data[i].preferencia, style: const TextStyle(color: Colors.white, fontSize: 16)),
+                    Text(data[i].lenguaje, style: const TextStyle(color: Colors.white, fontSize: 16)),
 
                   ],
                 ),
               ),
             ],
           ));
-      usuarios..add(widgetTemp);
+      usuarios.add(widgetTemp);
     }
     return usuarios;
   }

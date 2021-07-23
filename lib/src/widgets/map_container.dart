@@ -1,24 +1,24 @@
-import 'package:appsismos/src/models/sismos_response.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:appsismos/src/models/sismos_response.dart';
+
 
 class MapContainer extends StatefulWidget {
   final Datum sismo;
-
   const MapContainer({Key? key, required this.sismo}) : super(key: key);
   @override
-  State<MapContainer> createState() => _MapContainerState(sismo: sismo);
+  State<MapContainer> createState() => _MapContainerState();
 }
 
 class _MapContainerState extends State<MapContainer> {
-  Set<Marker> _markers = {};
-
+  final Set<Marker> _markers = {};
+  //Funcion que establece un marcador
   void _onMapCreated(GoogleMapController controller) {
+    Datum sismo = widget.sismo;
     controller.setMapStyle(Utils.mapStyle);
     setState(() {
       _markers.add(Marker(
-          markerId: MarkerId('id-1'),
+          markerId: MarkerId(sismo.idRegistro),
           position: LatLng(sismo.latitud, sismo.longitud),
           infoWindow: InfoWindow(
               title: sismo.refGeografica,
@@ -26,12 +26,9 @@ class _MapContainerState extends State<MapContainer> {
     });
   }
 
-  final Datum sismo;
-
-  _MapContainerState({required this.sismo});
-
   @override
   Widget build(BuildContext context) {
+    Datum sismo = widget.sismo;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Container(
@@ -40,8 +37,11 @@ class _MapContainerState extends State<MapContainer> {
         decoration: _createCardShape(),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
+          //Dibujamos el mapa
           child: GoogleMap(
+            //Al crearse el mapa se ejecuta _onMapCreated
             onMapCreated: _onMapCreated,
+            //Establecemos el marker
             markers: _markers,
             initialCameraPosition: CameraPosition(
                 target: LatLng(sismo.latitud, sismo.longitud), zoom: 9),
@@ -51,16 +51,19 @@ class _MapContainerState extends State<MapContainer> {
     );
   }
 
+  //Estilo de la caja del mapa
   BoxDecoration _createCardShape() => BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            const BoxShadow(
+          boxShadow: const [
+            BoxShadow(
                 color: Colors.black12, blurRadius: 15, offset: Offset(0, 5))
           ]);
 }
 
+
 class Utils {
+  //Tema del mapa
   static String mapStyle = '''
   [
   {

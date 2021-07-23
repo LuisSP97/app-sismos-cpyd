@@ -1,22 +1,23 @@
-import 'package:appsismos/src/models/sismos_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:appsismos/src/models/sismos_response.dart';
+
 
 class DetailsView extends StatelessWidget {
-  final Datum sismos;     //Variable para almacenar los datos entrantes y trabajarlos
-
+  final Datum sismos;
   const DetailsView({Key? key, required this.sismos})
-      : super(key: key); //Pedimos el argumento por parametros
-
+      : super(key: key);
+  //Estilos de title y data
   final myTitleStyle = const TextStyle( fontSize: 18, color: Colors.white);
   final myDataStyle = const TextStyle( fontSize: 18, color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(25) ,
+      margin: const EdgeInsets.all(25) ,
       alignment: Alignment.center,
-      child: Column(children: <Widget>[     //Dibujamos los datos
+      //Dibujamos los datos
+      child: Column(children: <Widget>[
         Row(
           children: [
             Expanded(child: Text('Fecha local', style: myTitleStyle, textAlign: TextAlign.start,)),

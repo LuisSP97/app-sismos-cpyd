@@ -1,17 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:appsismos/src/providers/sismos_provider.dart';
 import 'package:appsismos/src/widgets/drawer_view.dart';
 import 'package:appsismos/src/widgets/list_view.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
+// ignore: use_key_in_widget_constructors
 class HomePage extends StatelessWidget {
   static const routeName = '/home';
 
   @override
   Widget build(BuildContext context) {
+    //Variable que tiene los datos de los sismos, obtenidos desde la base de datos con la API
     final sismosProvider = Provider.of<SismosProvider>(
-        context); //Variable que tiene los datos de los sismos
-    // Obtenidos desde la base de datos con la api
+        context);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Lista de sismos'),
@@ -19,10 +20,11 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
         backgroundColor: Colors.white12,
-        drawer: DrawerView(),
+        drawer: const DrawerView(),
+        //Se dibuja Lista con los datos de los sismos
         body: Lista(
             sismos: sismosProvider
-                .lista_sismos) //Se dibuja Lista con los datos de los sismos
+                .listaSismos)
         );
   }
 }

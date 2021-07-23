@@ -1,41 +1,41 @@
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:appsismos/src/models/create_user_response.dart';
 import 'package:appsismos/src/models/sign_in_response.dart';
 import 'package:appsismos/src/models/sismos_response.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class SismosProvider extends ChangeNotifier {
-  String _baseUrl = '10.0.2.2:4000';
-
-  List<Datum> lista_sismos = [];
-
+  final String _baseUrl = '10.0.2.2:4000';
+  List<Datum> listaSismos = [];
   SismosProvider() {
-    print('SismosProvider inicializado');
-    this.getSismos();
+    getSismos();
   }
 
   getSismos() async {
+    //Intenta crear un usuario
     try {
       await createUser('flutter', 'flutter@mail.com', 'flutter1234');
     } catch (e) {
+      //Si la cracion falla al estar registrado, se inicia sesion para generar token
       final AuthResponse usuario = await signInUser('flutter@mail.com', 'flutter1234');
       String token = usuario.token;
       var url = Uri.http(_baseUrl, '/grupo-x/earthquakes');
+      //Se realiza la peticion
       final response = await http.get(
           url,
           headers: {
             'Authorization': 'Bearer $token'
           }
-      ); //Se realiza la peticion GET
-      final sismosResponse = SismosResponse.fromJson(response.body); //Se procesan los datos
-      lista_sismos = sismosResponse.data;
+      );
+      //Se procesan los datos
+      final sismosResponse = SismosResponse.fromJson(response.body);
+      listaSismos = sismosResponse.data;
     }
     notifyListeners();
   }
 }
-
+//Peticion para crear usuario
 Future<UsersResponse> createUser(
     String username, String email, String password) async {
   String _baseUrl = '10.0.2.2:4000';
@@ -55,7 +55,7 @@ Future<UsersResponse> createUser(
     throw Exception();
   }
 }
-
+//Peticion para generar token de usuario ya creado
 Future<AuthResponse> signInUser(String email, String password) async {
   String _baseUrl = '10.0.2.2:4000';
   var url = Uri.http(_baseUrl, '/grupo-x/auth/signin');

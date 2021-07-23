@@ -1,16 +1,11 @@
-import 'dart:convert';
-
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 import 'package:appsismos/src/api/google_signin_api.dart';
-import 'package:appsismos/src/models/create_user_response.dart';
-import 'package:appsismos/src/models/sign_in_response.dart';
 import 'package:appsismos/src/pages/home_page.dart';
 import 'package:appsismos/src/providers/login_form_provider.dart';
 import 'package:appsismos/src/widgets/card_container.dart';
 import 'package:appsismos/src/widgets/sign_in_background.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -24,11 +19,12 @@ class SignInPage extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 250),
+            //Caja de inicio de sesion
             CardContainer(
                 child: Column(
               children: [
                 const SizedBox(height: 20),
-                Text(
+                const Text(
                   'Inicio de sesion',
                   style: TextStyle(fontSize: 35),
                 ),
@@ -49,55 +45,50 @@ class _LoginForm extends StatefulWidget {
   State<_LoginForm> createState() => _LoginFormState();
 }
 
+//Contenido de la caja de inicio de sesion
 class _LoginFormState extends State<_LoginForm> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Form(
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: Column(
-          children: [
-            SizedBox(height: 30),
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6)),
-              minWidth: 150,
-              height: 60,
-              disabledColor: Colors.grey,
-              elevation: 0,
-              color: Colors.teal,
-              child: Container(
-                child: const Text(
-                  'Iniciar',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-              onPressed: () async {
-                setState(() {
-                  signIn(context);
-                });
-              },
-            )
-          ],
-        ),
+    return Form(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Column(
+        children: [
+          const SizedBox(height: 30),
+          MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+            minWidth: 150,
+            height: 60,
+            disabledColor: Colors.grey,
+            elevation: 0,
+            color: Colors.teal,
+            child: const Text(
+              'Iniciar',
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () async {
+              setState(() {
+                signIn(context);
+              });
+            },
+          )
+        ],
       ),
     );
   }
 
+  //Inicio de sesion
   Future signIn(context) async {
     final user = await GoogleSignInApi.login();
     var emailDomain = user!.email.split('@');
-    if (user == null) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Fallo el inicio de sesion')));
-    }
-    else if (emailDomain[1] == 'utem.cl') {
+    //Comprobamos el domionio
+    if (emailDomain[1] == 'utem.cl') {
       Navigator.pushReplacementNamed(context, HomePage.routeName);
-    }
-    else {
+    } else {
       await GoogleSignInApi.logout();
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('La cuenta ingresada no pertenece al dominio utem.cl')));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content:
+              Text('La cuenta ingresada no pertenece al dominio utem.cl')));
     }
   }
 }
