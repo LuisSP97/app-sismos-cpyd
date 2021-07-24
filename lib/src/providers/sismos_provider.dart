@@ -18,16 +18,13 @@ class SismosProvider extends ChangeNotifier {
       await createUser('flutter', 'flutter@mail.com', 'flutter1234');
     } catch (e) {
       //Si la cracion falla al estar registrado, se inicia sesion para generar token
-      final AuthResponse usuario = await signInUser('flutter@mail.com', 'flutter1234');
+      final AuthResponse usuario =
+          await signInUser('flutter@mail.com', 'flutter1234');
       String token = usuario.token;
       var url = Uri.http(_baseUrl, '/grupo-x/earthquakes');
       //Se realiza la peticion
-      final response = await http.get(
-          url,
-          headers: {
-            'Authorization': 'Bearer $token'
-          }
-      );
+      final response =
+          await http.get(url, headers: {'Authorization': 'Bearer $token'});
       //Se procesan los datos
       final sismosResponse = SismosResponse.fromJson(response.body);
       listaSismos = sismosResponse.data;
@@ -35,6 +32,7 @@ class SismosProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
 //Peticion para crear usuario
 Future<UsersResponse> createUser(
     String username, String email, String password) async {
@@ -55,6 +53,7 @@ Future<UsersResponse> createUser(
     throw Exception();
   }
 }
+
 //Peticion para generar token de usuario ya creado
 Future<AuthResponse> signInUser(String email, String password) async {
   String _baseUrl = '10.0.2.2:4000';
