@@ -20,7 +20,7 @@ class UserBox extends StatelessWidget {
     final List<Widget> usuarios = [];
     for (var i = 0; i < data.length; i++) {
       final widgetTemp = Container(
-        margin: const EdgeInsets.symmetric(vertical: 20),
+          margin: const EdgeInsets.symmetric(vertical: 20),
           width: size.width * 0.9,
           height: size.height * 0.2,
           decoration: BoxDecoration(
@@ -32,31 +32,90 @@ class UserBox extends StatelessWidget {
               ]),
           child: Row(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 45,),
-                    ClipRRect(child: Image.asset(data[i].asset, height: 70, width: 70), borderRadius: BorderRadius.circular(100),),
-                  ],
+              Flexible(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 45,
+                      ),
+                      ClipRRect(
+                        child:
+                            Image.asset(data[i].asset, height: 70, width: 70),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(data[i].nombre,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                        )),
-                    Text(data[i].gustos, style: const TextStyle(color: Colors.white, fontSize: 16),),
-                    Text(data[i].preferencia, style: const TextStyle(color: Colors.white, fontSize: 16)),
-                    Text(data[i].lenguaje, style: const TextStyle(color: Colors.white, fontSize: 16)),
-
-                  ],
+              Flexible(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(data[i].nombre,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                          )),
+                      RichText(
+                          text: TextSpan(
+                              children: [
+                            const WidgetSpan(
+                              alignment: PlaceholderAlignment.middle,
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 4),
+                                child: Icon(
+                                  Icons.favorite_rounded,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            TextSpan(text: data[i].gustos)
+                          ],
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 16))),
+                      RichText(
+                          text: TextSpan(
+                              children: [
+                            const WidgetSpan(
+                              alignment: PlaceholderAlignment.middle,
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 4),
+                                child: Icon(
+                                  Icons.handyman_rounded,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            TextSpan(text: data[i].preferencia)
+                          ],
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 16))),
+                      RichText(
+                          text: TextSpan(
+                              children: [
+                            const WidgetSpan(
+                              alignment: PlaceholderAlignment.middle,
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 4),
+                                child: Icon(
+                                  Icons.code_rounded,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            TextSpan(text: data[i].lenguaje)
+                          ],
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 16))),
+                    ],
+                  ),
                 ),
               ),
             ],
