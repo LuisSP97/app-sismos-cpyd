@@ -1,16 +1,42 @@
 # appsismos
 
-A new Flutter project.
+Aplicacion movil hecha con Flutter para mostrar los datos de una API RESTful de sismologia.
 
-## Getting Started
+_Link API RESTful:  https://github.com/LuisSP97/api-rest-cpyd_
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Como ejecutar
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Las siguientes instrucciones te permitiran obtener una copia del proyecto y ponerlo en marcha
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Pre-requisitos
+
+  * Entorno de Flutter: https://flutter.dev/docs/get-started/install
+  * API RESTful funcionando: https://github.com/LuisSP97/api-rest-cpyd
+
+### Obtener una copia
+
+Para obtener una copia del proyecto puedes descargarla directamente desde GitHub o utilizar el comando _clone_ de git desde un terminal
+```
+git clone https://github.com/LuisSP97/app-sismos-cpyd/
+```
+## Ejecucion del proyecto
+
+Una vez tengas todos los pre-requisitos y la copia del proyecto, en el IDE que hayas configurado inicia el proyecto
+
+### Instrucciones de uso
+
+**ATENCION!, para que este proyecto funcione debes contar con un correo electronico con dominio "utem.cl"**
+
+Una vez dentro de la aplicacion solo inicia sesion y tendras acceso a todas sus funciones ;)
+
+## Informacion del proyecto
+
+### Construido con
+
+  * [Flutter](https://flutter.dev/) - Framework de desarrollo
+
+### Desarrolladores
+  * Ariel Painenao Pincheira - [barsinsor](https://github.com/barsinsor)
+  * Luis Salinas Poblete - [LuisSP97](https://github.com/LuisSP97)
+  * Cristobal Sanchez Orellana - [CristobalSanchezOrellana](https://github.com/CristobalSanchezOrellana)
