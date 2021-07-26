@@ -6,7 +6,7 @@ import 'package:appsismos/src/models/sign_in_response.dart';
 import 'package:appsismos/src/models/sismos_response.dart';
 
 class SismosProvider extends ChangeNotifier {
-  final String _baseUrl = '10.0.2.2:4000';
+  final String _baseUrl = 'api.jkd.cl';
   List<Datum> listaSismos = [];
   SismosProvider() {
     getSismos();
@@ -21,7 +21,7 @@ class SismosProvider extends ChangeNotifier {
       final AuthResponse usuario =
           await signInUser('flutter@mail.com', 'flutter1234');
       String token = usuario.token;
-      var url = Uri.http(_baseUrl, '/grupo-x/earthquakes');
+      var url = Uri.https(_baseUrl, '/grupo-x/earthquakes');
       //Se realiza la peticion
       final response =
           await http.get(url, headers: {'Authorization': 'Bearer $token'});
@@ -36,8 +36,8 @@ class SismosProvider extends ChangeNotifier {
 //Peticion para crear usuario
 Future<UsersResponse> createUser(
     String username, String email, String password) async {
-  String _baseUrl = '10.0.2.2:4000';
-  var url = Uri.http(_baseUrl, '/grupo-x/users');
+  String _baseUrl = 'api.jkd.cl';
+  var url = Uri.https(_baseUrl, '/grupo-x/users');
   final response = await http.post(
     url,
     headers: <String, String>{
@@ -56,8 +56,8 @@ Future<UsersResponse> createUser(
 
 //Peticion para generar token de usuario ya creado
 Future<AuthResponse> signInUser(String email, String password) async {
-  String _baseUrl = '10.0.2.2:4000';
-  var url = Uri.http(_baseUrl, '/grupo-x/auth/signin');
+  String _baseUrl = 'api.jkd.cl';
+  var url = Uri.https(_baseUrl, '/grupo-x/auth/signin');
   final response = await http.post(
     url,
     headers: <String, String>{
