@@ -10,12 +10,17 @@ class SignInBackground extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/map.jpg'), fit: BoxFit.cover)),
       child: Stack(
         children: [_TealBox(), _HeaderIcon(), child],
       ),
+      decoration: BoxDecoration(
+          color: Colors.blueGrey,
+          backgroundBlendMode: BlendMode.darken,
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.4, 1],
+              colors: [Colors.teal, Colors.black54])),
     );
   }
 }
@@ -27,7 +32,7 @@ class _HeaderIcon extends StatelessWidget {
     return SafeArea(
         child: Container(
             width: double.infinity,
-            margin: const EdgeInsets.only(top: 70),
+            margin: const EdgeInsets.only(top: 100),
             child:
                 const Icon(Icons.person_pin, color: Colors.white, size: 100)));
   }
