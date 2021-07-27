@@ -13,7 +13,7 @@ class SignInBackground extends StatelessWidget {
       child: Stack(
         children: [_TealBox(), _HeaderIcon(), child],
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.blueGrey,
           backgroundBlendMode: BlendMode.darken,
           gradient: LinearGradient(
