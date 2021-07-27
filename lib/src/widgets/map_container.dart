@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:appsismos/src/models/sismos_response.dart';
 
-
 class MapContainer extends StatefulWidget {
   final Datum sismo;
   const MapContainer({Key? key, required this.sismo}) : super(key: key);
@@ -30,7 +29,7 @@ class _MapContainerState extends State<MapContainer> {
   Widget build(BuildContext context) {
     Datum sismo = widget.sismo;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
       child: Container(
         width: double.infinity,
         height: 300,
@@ -60,7 +59,6 @@ class _MapContainerState extends State<MapContainer> {
                 color: Colors.black12, blurRadius: 15, offset: Offset(0, 5))
           ]);
 }
-
 
 class Utils {
   //Tema del mapa

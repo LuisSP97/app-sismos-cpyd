@@ -18,11 +18,17 @@ class DetailsPage extends StatelessWidget {
         backgroundColor: Colors.white12,
         body: Column(
           children: [
-            const SizedBox(height: 20),
             //Dibujamos el mapa de google
-            MapContainer(sismo: sismos,),
+            Flexible(
+              flex: 1,
+              fit: FlexFit.tight,
+              child: MapContainer(
+                sismo: sismos,
+              ),
+            ),
             //Dibujamos los detalles
-            DetailsView(sismos: sismos)
+            Flexible(
+                flex: 1, fit: FlexFit.tight, child: DetailsView(sismos: sismos))
           ],
         ));
   }
